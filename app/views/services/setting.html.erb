@@ -1,0 +1,27 @@
+<% content_for :sidebar do %>
+  <%= render :partial => 'services/sidebar' %>
+<% end %>
+
+<div class="contextual">
+  <%= link_to l(:label_settings), url_for(:controller => :services, :action => :edit, :id => @service.id),
+              :class => 'icon icon-settings' if @service.editable? %>
+</div>
+
+<% html_title @service.name %>
+<h2 class="inline-block"><%= @service.name %></h2>
+
+<div class="tabs hide-when-print">
+  <ul>
+    <li><a href="<%= url_for(:controller => :services, :action => :show, :id => @service.id) %>"><%= l(:label_text_detail) %></a></li>
+    <li><a class="selected" href="javascript:void(0)"><%= l(:label_text_setting) %></a></li>
+  </ul>
+</div>
+
+<%= labelled_form_for @service, :url => '' do |f| %>
+  <div class="box tabular">
+    <p><%= f.text_field :name, :value => @service.name, :disabled => true %></p>
+    <p><%= f.text_field :git_repo_url, :value => @service.git_repo_url, :disabled => true %></p>
+    <p><%= f.text_field :git_access_token, :value => @service.git_access_token, :disabled => true %></p>
+  </div>
+<% end %>
+

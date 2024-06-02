@@ -1,0 +1,6 @@
+<h3></h3>
+<ul class="queries">
+<% (@sidebar_links || []).each do | link | %>
+  <li><a class="query <%= "selected" if link.name == "service" %>" href="<%= link.url %>"><%= link.title %></a></li>
+<% end %>
+</ul>

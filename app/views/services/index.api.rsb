@@ -1,0 +1,7 @@
+api.array :services, api_meta(:total_count => @total_count, :offset => @offset, :limit => @limit) do
+  @services.each do |service|
+    api.service do
+        api.name service.name
+    end
+  end
+end

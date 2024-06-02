@@ -1,0 +1,15 @@
+<%= error_messages_for 'service' %>
+<%= back_url_hidden_field_tag %>
+
+<div class="box tabular">
+  <% if @service.new_record? && params[:project_id] %>
+    <%= hidden_field_tag 'project_id', params[:project_id] %>
+  <% elsif @service.new_record? && params[:service_id] %>
+    <%= hidden_field_tag 'service_id', params[:service_id] %>
+  <% end %>
+
+  <p><%= f.text_field :name, :maxlength => 255, :required => true %></p>
+  <p><%= f.text_field :git_repo_url, :maxlength => 255, :required => true %></p>
+  <p><%= f.text_field :git_access_token, :maxlength => 255, :required => true %></p>
+</div>
+

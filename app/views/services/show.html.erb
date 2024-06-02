@@ -1,0 +1,19 @@
+<% content_for :sidebar do %>
+  <%= render :partial => 'services/sidebar' %>
+<% end %>
+
+<div class="contextual">
+</div>
+
+<% html_title @service.name %>
+<h2 class="inline-block"><%= @service.name %></h2>
+
+<div class="tabs hide-when-print">
+  <ul>
+    <li><a class="selected" href="javascript:void(0)"><%= l(:label_text_detail) %></a></li>
+    <li><a href="<%= url_for(:controller => :services, :action => :setting, :id => @service.id) %>">
+      <%= l(:label_text_setting) %>
+    </a></li>
+  </ul>
+</div>
+

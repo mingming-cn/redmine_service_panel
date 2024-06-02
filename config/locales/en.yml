@@ -1,0 +1,17 @@
+en:
+  project_module_service_assistant: Service assistant
+  menu_service_assistant: Service Assistant
+
+  label_new_service: new service
+  label_services: Services
+  label_text_detail: Detail
+  label_text_setting: Setting
+
+  sidebar_text_services: Services
+  sidebar_text_environment: Environment
+  sidebar_text_event: Event
+
+  field_git_repo_url: Gitlab repository url
+  field_git_access_token: Gitlab access token
+
+  notice_service_successful_create: Service successful created

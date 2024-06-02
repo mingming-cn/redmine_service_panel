@@ -1,0 +1,13 @@
+
+<% content_for :sidebar do %>
+  <%= render :partial => 'services/sidebar' %>
+<% end %>
+
+<div class="contextual">
+  <% if User.current.allowed_to?(:add_services, @project) %>
+    <%= link_to l(:label_new_service), url_for(:controller => 'services', :action => :new), :class => 'icon icon-add' %>
+  <% end %>
+</div>
+
+<%= title l(:label_services) %>
+

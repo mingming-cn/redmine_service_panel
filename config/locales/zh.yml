@@ -1,0 +1,17 @@
+zh:
+  project_module_service_assistant: 服务助手
+  menu_service_assistant: 服务助手
+
+  label_new_service: 新建服务
+  label_services: 服务列表
+  label_text_detail: 详情
+  label_text_setting: 配置
+
+  sidebar_text_services: 服务
+  sidebar_text_environment: 环境
+  sidebar_text_event: 事件
+
+  field_git_repo_url: Gitlab 仓库地址
+  field_git_access_token: Gitlab access token
+
+  notice_service_successful_create: 服务创建成功

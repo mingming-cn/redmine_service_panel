@@ -1,6 +1,6 @@
-class CreateServiceAssistantServices < ActiveRecord::Migration[6.1]
+class CreateServicePanelServices < ActiveRecord::Migration[6.1]
   def change
-    create_table :service_assistant_services do |t|
+    create_table :service_panel_services do |t|
       t.string :name, null: false
       t.integer :project_id, null: false
       t.string :git_repo_url, null: false

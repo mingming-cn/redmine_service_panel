@@ -1,19 +1,17 @@
 require 'redmine'
-require_relative 'lib/redmine_service_assistant'
 
-
-Redmine::Plugin.register :redmine_service_assistant do
-  name 'Redmine service assistant plugin'
+Redmine::Plugin.register :redmine_service_panel do
+  name 'Redmine service panel plugin'
   author 'mingming.wang'
-  description 'This is a plugin of service assistant for Redmine'
+  description 'This is a plugin of service panel for Redmine'
   version '0.0.1'
-  url 'https://github.com/mingming-cn/redmine_service_assistant'
+  url 'https://github.com/mingming-cn/redmine_service_panel'
   author_url 'https://mingming.wang'
-  project_module :service_assistant do
-    permission :view_services, services: %i[index show setting]
-    permission :add_services, services: %i[create new]
-    permission :update_services, services: %i[update]
+  project_module :service_panel do
+    permission :view_services, services: %i[index show]
+    permission :add_services, services: %i[new create]
+    permission :update_services, services: %i[edit update]
   end
-  menu :project_menu, :service_assistant, { controller: 'services', action: 'index' },
-       caption: :menu_service_assistant, after: :calendar, param: :project_id
+  menu :project_menu, :service_panel, { controller: 'services', action: 'index' },
+       caption: :menu_service_panel, after: :calendar, param: :project_id
 end

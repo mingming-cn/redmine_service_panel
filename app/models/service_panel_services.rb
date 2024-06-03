@@ -1,4 +1,4 @@
-class ServiceAssistantServices < ActiveRecord::Base
+class ServicePanelServices < ActiveRecord::Base
   include Redmine::SafeAttributes
   belongs_to :project
 

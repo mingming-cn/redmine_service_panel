@@ -1,6 +1,9 @@
 en:
-  project_module_service_assistant: Service assistant
-  menu_service_assistant: Service Assistant
+  project_module_service_panel: Service panel
+  menu_service_panel: Service Panel
+  permission_view_services: View service
+  permission_add_services: Add services
+  permission_update_services: Update service
 
   label_new_service: new service
   label_services: Services

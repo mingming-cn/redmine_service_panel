@@ -1,6 +1,9 @@
 zh:
-  project_module_service_assistant: 服务助手
-  menu_service_assistant: 服务助手
+  project_module_service_panel: 服务面板
+  menu_service_panel: 服务面板
+  permission_view_services: 服务面板
+  permission_add_services: 创建服务
+  permission_update_services: 更新服务
 
   label_new_service: 新建服务
   label_services: 服务列表

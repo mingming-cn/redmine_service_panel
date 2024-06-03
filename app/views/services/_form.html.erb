@@ -8,7 +8,7 @@
     <%= hidden_field_tag 'service_id', params[:service_id] %>
   <% end %>
 
-  <p><%= f.text_field :name, :maxlength => 255, :required => true %></p>
+  <p><%= f.text_field :name, :maxlength => 255, :required => true, :disabled => update %></p>
   <p><%= f.text_field :git_repo_url, :maxlength => 255, :required => true %></p>
   <p><%= f.text_field :git_access_token, :maxlength => 255, :required => true %></p>
 </div>

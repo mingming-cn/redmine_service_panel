@@ -1,4 +1,5 @@
 require 'redmine'
+require_relative 'lib/redmine_service_panel'
 
 Redmine::Plugin.register :redmine_service_panel do
   name 'Redmine service panel plugin'
@@ -11,6 +12,8 @@ Redmine::Plugin.register :redmine_service_panel do
     permission :view_services, services: %i[index show]
     permission :add_services, services: %i[new create]
     permission :update_services, services: %i[edit update]
+
+    permission :add_events, events: %i[create]
   end
   menu :project_menu, :service_panel, { controller: 'services', action: 'index' },
        caption: :menu_service_panel, after: :calendar, param: :project_id

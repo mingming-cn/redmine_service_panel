@@ -14,7 +14,7 @@
   </ul>
 </div>
 
-<%= labelled_form_for @service, :url => url_for(:controller => 'services', :action => :update) do |f| %>
+<%= labelled_form_for @service, :repo_url => url_for(:controller => 'services', :action => :update) do |f| %>
   <%= render :partial => 'form', :locals => {:f => f, :update => true} %>
   <%= submit_tag l(:button_update) %>
 <% end %>

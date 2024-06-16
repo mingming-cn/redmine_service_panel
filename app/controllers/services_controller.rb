@@ -23,9 +23,7 @@ class ServicesController < ApplicationController
   def new; end
 
   def create
-    unless User.current.allowed_to?(:add_services, @project)
-      raise ::Unauthorized
-    end
+    raise ::Unauthorized unless User.current.allowed_to?(:add_services, @project)
 
     if @service.save
       respond_to do |format|

@@ -1,4 +1,3 @@
-
 RedmineApp::Application.routes.draw do
   match 'projects/:project_id/service-panel/services', :controller => 'services',
         :action => 'index', via: [:get]
@@ -12,4 +11,7 @@ RedmineApp::Application.routes.draw do
         :action => 'edit', via: [:get]
   match 'projects/:project_id/service-panel/services/:id/edit', :controller => 'services',
         :action => 'update', via: [:patch]
+
+  match 'projects/:project_id/service-panel/services/:service_id/events', :controller => 'events',
+        :action => 'create', via: [:post]
 end

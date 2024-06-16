@@ -11,3 +11,8 @@
 
 <%= title l(:label_services) %>
 
+
+
+<% @services.each do | service | %>
+  <%= service.name %>
+<% end %>

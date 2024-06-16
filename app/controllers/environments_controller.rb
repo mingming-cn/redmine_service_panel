@@ -1,0 +1,3 @@
+class EnvironmentsController < ApplicationController
+
+end

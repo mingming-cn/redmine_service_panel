@@ -15,6 +15,6 @@ Redmine::Plugin.register :redmine_service_panel do
 
     permission :add_events, events: %i[create]
   end
-  menu :project_menu, :service_panel, { controller: 'services', action: 'index' },
+  menu :project_menu, :service_panel, { controller: 'service_panel/services', action: 'index' },
        caption: :menu_service_panel, after: :calendar, param: :project_id
 end

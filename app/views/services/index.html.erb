@@ -11,8 +11,32 @@
 
 <%= title l(:label_services) %>
 
-
-
-<% @services.each do | service | %>
-  <%= service.name %>
-<% end %>
+<div class="autoscroll">
+  <table class="list odd-even service-list">
+    <thead>
+    <tr>
+      <th class="name">服务名</th>
+      <th class="other" width="40">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @services.each do |service| %>
+      <tr id="service-<%= service.id %>" class="service <%= cycle("odd", "even") %>">
+        <td class="name"><%= service.name %></td>
+        <td class="buttons">
+          <% if service.editable?(User.current) -%>
+            <%= link_to l(:button_edit), url_for(:controller => 'services', :action => :edit, :id => service.id),
+                        :title => l(:button_edit),
+                        :class => 'icon-only icon-edit' %>
+            <%= link_to l(:button_delete), url_for(:controller => 'services', :action => :destroy, :id => service.id),
+                        :data => {:confirm => l(:text_are_you_sure)},
+                        :method => :delete,
+                        :title => l(:button_delete),
+                        :class => 'icon-only icon-del' %>
+          <% end -%>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

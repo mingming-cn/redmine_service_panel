@@ -1,4 +1,3 @@
-
 class ServicesController < ApplicationController
   include ServicesHelper
   include Redmine::SafeAttributes
@@ -43,13 +42,35 @@ class ServicesController < ApplicationController
       format.html do
         render :action => 'new'
       end
-      format.api  {render_validation_errors(@service)}
+      format.api { render_validation_errors(@service) }
     end
   end
 
   def show; end
 
   def edit; end
+
+  def destroy
+    destroyed = @service.destroy && @service.destroyed?
+
+    respond_to do |format|
+      format.html do
+        if destroyed
+          flash[:notice] = l(:notice_successful_delete)
+        else
+          flash[:error] = l(:notice_unable_delete_time_entry)
+        end
+        redirect_to url_for(:controller => :services, :action => :index)
+      end
+      format.api do
+        if destroyed
+          render_api_ok
+        else
+          render_validation_errors(@service)
+        end
+      end
+    end
+  end
 
   def update
     @service.git_repo_url = params[:service_panel_services][:git_repo_url]
@@ -60,12 +81,12 @@ class ServicesController < ApplicationController
           flash[:notice] = l(:notice_successful_update)
           redirect_to url_for(:controller => :services, :action => :edit, :id => @service.id, :project_id => @project)
         end
-        format.api {render_api_ok}
+        format.api { render_api_ok }
       end
     else
       respond_to do |format|
-        format.html {render :action => 'edit'}
-        format.api  {render_validation_errors(@service)}
+        format.html { render :action => 'edit' }
+        format.api { render_validation_errors(@service) }
       end
     end
   end
@@ -94,7 +115,7 @@ class ServicesController < ApplicationController
     @service.created_at ||= Time.now
 
     attrs = (params[:service_panel_services] || {}).deep_dup
-    @service.name= attrs[:name]
+    @service.name = attrs[:name]
     @service.git_repo_url = attrs[:git_repo_url]
     @service.git_access_token = attrs[:git_access_token]
   end
